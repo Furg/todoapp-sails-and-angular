@@ -2,11 +2,11 @@
   "name": "todoApp",
   "private": true,
   "version": "0.0.0",
-  "author" : "Furg",
+  "author": "furg",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
-    "bower": "^1.4.1",
+    "bower": "1.7.9",
     "ejs": "2.3.4",
     "forever": "^0.11.1",
     "grunt": "0.4.5",
@@ -25,8 +25,7 @@
     "q": "^1.4.1",
     "rc": "1.0.1",
     "sails": "~0.12.3",
-    "sails-disk": "~0.10.9",
-    "bower": "1.7.9"
+    "sails-disk": "~0.10.9"
   },
   "engines": {
     "node": "4.4.3",
@@ -41,6 +40,5 @@
     "type": "git",
     "url": "https://github.com/Furg/todoapp-sails-and-angular.git"
   },
-  "author": "furg",
   "license": ""
 }

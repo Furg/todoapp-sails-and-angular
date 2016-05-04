@@ -22,15 +22,11 @@ todoApp.controller('TodoCtrl', ['$scope', '$rootScope', 'TodoService', function(
   $scope.formData = {};
   $scope.todos = [];
 
-  TodoService.getTodos().then(function(response) {
-    $scope.todos = response;
-  });
-
-  io.socket.on('todo', function serverResponded (body, JWR) {
+  $scope.refreshTodos = function() {
     TodoService.getTodos().then(function(response) {
       $scope.todos = response;
     });
-  });
+  }
 
   $scope.addTodo = function() {
     TodoService.addTodo($scope.formData).then(function(response) {
@@ -44,4 +40,7 @@ todoApp.controller('TodoCtrl', ['$scope', '$rootScope', 'TodoService', function(
       $scope.todos.splice($scope.todos.indexOf(todo), 1)
     });
   }
+
+  $scope.refreshTodos()
+  TodoService.subscribeTodos($scope.refreshTodos);
 }]);

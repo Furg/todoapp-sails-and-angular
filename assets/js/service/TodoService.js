@@ -1,5 +1,10 @@
 todoApp.service('TodoService', function($http, $q) {
   return {
+    'subscribeTodos':function(callback){
+      io.socket.on('todo', function serverResponded (body, JWR){
+        callback();
+      });
+    },
     'getTodos': function() {
       var defer = $q.defer();
       io.socket.get('/todo', function serverResponded (body, JWR) {

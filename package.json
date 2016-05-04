@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "sails lift",
-    "postinstall": "bower install"
+    "postinstall": "bower cache clean && bower install"
   },
   "main": "app.js",
   "repository": {

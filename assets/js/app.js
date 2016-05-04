@@ -12,6 +12,12 @@ todoApp.config(['$routeProvider',
     })
   }]);
 
+todoApp.filter('reverse', function() {
+  return function(items) {
+    return items.slice().reverse();
+  };
+});
+
 todoApp.controller('TodoCtrl', ['$scope', '$rootScope', 'TodoService', function($scope, $rootScope, TodoService) {
   $scope.formData = {};
   $scope.todos = [];
@@ -20,9 +26,15 @@ todoApp.controller('TodoCtrl', ['$scope', '$rootScope', 'TodoService', function(
     $scope.todos = response;
   });
 
+  io.socket.on('todo', function serverResponded (body, JWR) {
+    TodoService.getTodos().then(function(response) {
+      $scope.todos = response;
+    });
+  });
+
   $scope.addTodo = function() {
     TodoService.addTodo($scope.formData).then(function(response) {
-      $scope.todos.push($scope.formData)
+      $scope.todos.push(response)
       $scope.formData = {};
     });
   }

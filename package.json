@@ -39,7 +39,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/furg/todoApp.git"
+    "url": "https://github.com/Furg/todoapp-sails-and-angular.git"
   },
   "author": "furg",
   "license": ""

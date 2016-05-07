@@ -29,9 +29,11 @@ todoApp.controller('TodoCtrl', ['$scope', '$rootScope', 'TodoService', function(
   }
 
   $scope.addTodo = function() {
+    $("button").button('loading');
     TodoService.addTodo($scope.formData).then(function(response) {
       $scope.todos.push(response)
       $scope.formData = {};
+      $("button").button('reset');
     });
   }
 

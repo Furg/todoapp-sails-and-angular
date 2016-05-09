@@ -1,6 +1,10 @@
 'use strict';
 
 var todoApp = angular.module('todoApp', ['ngRoute', 'ui.bootstrap']);
+todoApp.run(function ($templateCache, $http) {
+        $http.get('/templates/todo.html', { cache: $templateCache });
+    });
+
 todoApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.when('/', {
